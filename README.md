@@ -27,3 +27,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## run ng add @angular-eslint/schematics@next to add es-lint to your project
+## add puppeteer and HeadlessChrome to karma config and package.json and angular.json for unit testing
