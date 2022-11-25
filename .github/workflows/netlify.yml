@@ -31,8 +31,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ng9-github-actions-netlify-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
-          path: ./dist/ng9-github-actions-netlify
+          name: fire_and_ice-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
+          path: ./dist/fire_and_ice
 
   deploy:
     needs: build
