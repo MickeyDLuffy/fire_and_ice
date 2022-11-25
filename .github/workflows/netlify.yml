@@ -22,8 +22,8 @@ jobs:
         run: npm run lint
       - name: Run Unit tests
         run: npm run test:ci
-      - name: Run E2E with cypress
-        run: npm run test:e2e
+#       - name: Run E2E with cypress
+#         run: npm run test:e2e
       - name: Build app
         run: npm run build:prod
       - name: Inject slug/short variables
