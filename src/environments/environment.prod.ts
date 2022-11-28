@@ -1,3 +1,9 @@
+const fireAndIceApiBase = 'https://www.anapioficeandfire.com/api'
+
 export const environment = {
-  production: true
+  baseUri: fireAndIceApiBase,
+  version: '1',
+  enableDebugTools: false,
+  production: false,
+  logLevel: 'debug'
 };

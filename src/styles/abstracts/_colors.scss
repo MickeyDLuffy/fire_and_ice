@@ -1,0 +1,23 @@
+$main: #001B36;
+$secondary: #27AAE0;
+$light-secondary: #2596BE33;
+$light-grey: #E8E8E8;
+$facebook: #3B5998;
+$accent: #7C345C;
+$background: #F0F0F0;
+$white: rgb(255, 255, 255);
+$black: #2B2D2F;
+
+// Spacing
+
+$spacing-main: 3rem;
+$spacing-1rem: 1rem;
+
+
+@mixin change-background($background: $main) {
+    background: $background;
+}
+
+@mixin change-color($color: $accent) {
+    color: $color;
+}

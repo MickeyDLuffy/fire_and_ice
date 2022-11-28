@@ -28,8 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "src/styles",
+                "node_modules/~@fortawesome"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -96,17 +103,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "src/styles",
+                "node_modules/~@fortawesome"
+              ]
+            },
             "scripts": []
-          },
-          "configurations": {
-            "ci": {
-              "watch": false,
-              "progress": false,
-              "browsers": "ChromeHeadlessCI"
-            }
           }
+
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -116,52 +124,8 @@
               "src/**/*.html"
             ]
           }
-        },
-        "cypress-run": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "fire_and_ice:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "fire_and_ice:serve:production"
-            }
-          }
-        },
-        "cypress-open": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "watch": true,
-            "headless": false
-          }
-        },
-        "ct": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "fire_and_ice:serve",
-            "watch": true,
-            "headless": false,
-            "testingType": "component"
-          },
-          "configurations": {
-            "development": {
-              "devServerTarget": "fire_and_ice:serve:development"
-            }
-          }
-        },
-        "e2e": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "fire_and_ice:serve",
-            "watch": true,
-            "headless": false
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "fire_and_ice:serve:production"
-            }
-          }
         }
+
       }
     }
   },
