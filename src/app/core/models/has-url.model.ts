@@ -1,4 +1,3 @@
-
 export interface HasUrlModel {
-  url:	string
+  url: string
 }

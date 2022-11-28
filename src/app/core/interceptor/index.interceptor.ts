@@ -3,7 +3,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CacheInterceptor} from "./cache.interceptor";
 import {UrlInterceptor} from "./url.interceptor";
 
-export const INTERCEPTORS = [ {
+export const INTERCEPTORS = [{
   provide: HTTP_INTERCEPTORS,
   useClass: HttpHeaderInterceptor,
   multi: true

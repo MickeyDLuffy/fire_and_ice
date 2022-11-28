@@ -1,4 +1,3 @@
-
 export enum HttpHeader {
   ACCEPT = 'Accept',
   ACCESS_CONTROL_ALLOW_CREDENTIALS = '',

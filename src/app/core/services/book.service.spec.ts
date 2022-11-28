@@ -1,10 +1,8 @@
 import {TestBed} from '@angular/core/testing';
-
 import {BookService} from './book.service';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {BookModel} from "../models/book.model";
-import {HttpErrorResponse, HttpParams} from "@angular/common/http";
-import {MediaType} from "../enums/media-type";
+import {HttpErrorResponse} from "@angular/common/http";
 
 describe('BookService', () => {
   let bookService: BookService;
@@ -22,14 +20,10 @@ describe('BookService', () => {
     bookService = TestBed.inject(BookService);
     httpController = TestBed.inject(HttpTestingController);
   });
-
   it('should be created', () => {
     expect(bookService).toBeTruthy()
   });
-
-
   it('should find one book by url', function () {
-
     bookService.findOne(url).subscribe(
       actualBook => {
         expect(actualBook).withContext('No book item returned').toBeTruthy()
@@ -38,12 +32,9 @@ describe('BookService', () => {
     );
     const request = httpController.expectOne(url)
     expect(request.request.method).withContext('This must be a GET request').toEqual('GET');
-
     request.flush(book)
-
   });
-
-  it('should get all books',  () =>{
+  it('should get all books', () => {
     const url = '/books'
     bookService.findAll().subscribe(books => {
       expect(books).withContext('Books must be defined').toBeTruthy()
@@ -58,7 +49,6 @@ describe('BookService', () => {
     const statusText = 'Internal Server error';
     const errorEvent = new ErrorEvent('Error response from fire and ice API');
     let actualError: HttpErrorResponse | undefined;
-
     bookService.findOne(url).subscribe(
       () => {
         fail('Subscription Error occurred. Next callback must not be invoked');
@@ -70,12 +60,10 @@ describe('BookService', () => {
         fail('Entered error block. Complete callback must not be invoked');
       },
     )
-
     httpController.expectOne(url).error(
       errorEvent,
-      { status, statusText }
+      {status, statusText}
     );
-
     if (!actualError) {
       throw new Error('Set Error message');
     }
@@ -83,24 +71,22 @@ describe('BookService', () => {
     expect(actualError.status).toBe(status);
     expect(actualError.statusText).toBe(statusText);
   });
-
-  it('should confirm if pagination is correct',  () => {
+  it('should confirm if pagination is correct', () => {
     url = '/books?page=1&pageSize=10'
     bookService.findAll({page: '1', pageSize: '10'}).subscribe(
       actualBook => {
       }
     );
     const request = httpController.expectOne(url)
-     const httpRequest = request.request;
-     expect( httpRequest.params.get('page')).withContext('the page  must be 1').toEqual('1')
-     expect( httpRequest.params.get('pageSize')).withContext('the page sixe must be ').toEqual('10')
-     expect(httpRequest.method).toBe('GET')
-     expect(httpRequest.url).toBe('/books')
-     // expect(httpRequest.headers.get('Accept')).withContext('The accept must be application vnd').toBe(MediaType.APPLICATION_VND_JSON)
-    request.flush({ success: true });
+    const httpRequest = request.request;
+    expect(httpRequest.params.get('page')).withContext('the page  must be 1').toEqual('1')
+    expect(httpRequest.params.get('pageSize')).withContext('the page sixe must be ').toEqual('10')
+    expect(httpRequest.method).toBe('GET')
+    expect(httpRequest.url).toBe('/books')
+    // expect(httpRequest.headers.get('Accept')).withContext('The accept must be application vnd').toBe(MediaType.APPLICATION_VND_JSON)
+    request.flush({success: true});
   });
-
-  it('should confirm if filter is correct',  () => {
+  it('should confirm if filter is correct', () => {
     url = '/books?name=mickey'
     bookService.findAll(undefined, {name: 'mickey'}).subscribe(
       actualBook => {
@@ -108,12 +94,10 @@ describe('BookService', () => {
     );
     const request = httpController.expectOne(url)
     const httpRequest = request.request;
-    expect( httpRequest.params.get('name')).withContext('filter param must be name').toEqual('mickey')
-
+    expect(httpRequest.params.get('name')).withContext('filter param must be name').toEqual('mickey')
     // expect(httpRequest.headers.get('Accept')).withContext('The accept must be application vnd').toBe(MediaType.APPLICATION_VND_JSON)
-    request.flush({ success: true });
+    request.flush({success: true});
   });
-
   afterEach(() => {
     httpController.verify();
   })

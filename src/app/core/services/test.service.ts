@@ -10,23 +10,22 @@ import {BehaviorSubject, shareReplay, tap} from "rxjs";
 export class TestService {
   private charactersSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   characters$ = this.charactersSubject.asObservable();
+
   constructor(private readonly httpClient: HttpClient,
-              private readonly envService: EnvironmentServiceImpl) { }
+              private readonly envService: EnvironmentServiceImpl) {
+  }
 
   getRandom() {
     const pag: PaginationModel = {page: '1', pageSize: '20'}
     const params = new HttpParams({fromObject: {...pag}})
-    if(this.charactersSubject.value) {
+    if (this.charactersSubject.value) {
       console.log('has data')
       return this.characters$;
     } else {
-      return this.httpClient.get( '/characters/1').pipe(
+      return this.httpClient.get('/characters/1').pipe(
         tap(c => this.charactersSubject.next(c)),
         shareReplay()
       )
-
     }
-
-
   }
 }

@@ -15,9 +15,9 @@ $spacing-1rem: 1rem;
 
 
 @mixin change-background($background: $main) {
-    background: $background;
+  background: $background;
 }
 
 @mixin change-color($color: $accent) {
-    color: $color;
+  color: $color;
 }
