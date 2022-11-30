@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import {EnvironmentService, LogLevel} from "./environment.service";
-import {environment} from "./environment";
+import { EnvironmentService, LogLevel } from './environment.service';
+import { environment } from './environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class EnvironmentServiceImpl implements EnvironmentService{
-
-  constructor() { }
-
-
+export class EnvironmentServiceImpl implements EnvironmentService {
   get baseUri(): string {
     return environment.baseUri;
   }

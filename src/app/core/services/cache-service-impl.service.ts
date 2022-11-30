@@ -1,17 +1,15 @@
-import {Injectable} from '@angular/core';
-import {HttpResponse} from "@angular/common/http";
-import {BehaviorSubject} from "rxjs";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+import { Injectable } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CacheServiceImpl implements CacheService {
   private static requests: Map<string, HttpResponse<any>> = new Map();
-  private responseSubject: BehaviorSubject<Map<string, HttpResponse<any>>> = new BehaviorSubject(new Map)
-  response = this.responseSubject.asObservable();
-
-  constructor() {
-  }
+  private responseSubject: BehaviorSubject<Map<string, HttpResponse<any>>> =
+    new BehaviorSubject(new Map());
 
   get(url: string): HttpResponse<any> | undefined {
     return CacheServiceImpl.requests.get(url);
@@ -22,8 +20,8 @@ export class CacheServiceImpl implements CacheService {
   }
 
   put(url: string, response: HttpResponse<any>): void {
-    this.responseSubject.next(new Map().set(url, response))
-    CacheServiceImpl.requests.set(url, response)
+    this.responseSubject.next(new Map().set(url, response));
+    CacheServiceImpl.requests.set(url, response);
   }
 }
 

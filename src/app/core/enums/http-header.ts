@@ -9,5 +9,5 @@ export enum HttpHeader {
   LINK = 'Link',
   IF_MODIFIED_SINCE = 'If-Modified-Since',
   IF_NONE_MATCH = 'If-None-Match',
-  LAST_MODIFIED = 'Last-Modified'
+  LAST_MODIFIED = 'Last-Modified',
 }
