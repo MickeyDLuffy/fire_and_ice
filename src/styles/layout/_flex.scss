@@ -1,5 +1,3 @@
-
-
 @mixin flex-evenly($display: flex) {
   display: $display;
   justify-content: space-evenly;
@@ -12,13 +10,13 @@
   align-items: center;
 }
 
-@mixin flex-between($display: flex)  {
+@mixin flex-between($display: flex) {
   display: $display;
   justify-content: space-between;
   align-items: center;
 }
 
-@mixin flex-around($display: flex)  {
+@mixin flex-around($display: flex) {
   display: $display;
   justify-content: space-around;
   align-items: center;
