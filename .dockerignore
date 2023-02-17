@@ -1,0 +1,15 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+
+
+# Dependency directories
+node_modules/
+.angular
+.vscode
+cypress
+.gitignore
+#dist
