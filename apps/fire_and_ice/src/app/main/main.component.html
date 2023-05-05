@@ -1,0 +1,15 @@
+<ng-container
+  *ngTemplateOutlet="
+    test;
+    context: { values: ['Mickey', 'Dee', 'Luffy'], name: 'mickey' }
+  "
+></ng-container>
+
+<ng-template #test let-name let-values>
+  <p>{{ name }}</p>
+  <div *ngFor="let i of values">
+    <p>{{ i }}</p>
+    mmm
+  </div>
+</ng-template>
+e

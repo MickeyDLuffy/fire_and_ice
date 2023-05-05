@@ -1,0 +1,13 @@
+$font-normal: 400;
+$font-light: 300;
+$font-size-default: 16;
+$font-stack: 'Poppins', sans-serif;
+@mixin font(
+  $weight: $font-light,
+  $size: $font-size-default,
+  $family: $font-stack
+) {
+  font-size: $size;
+  font-family: $family;
+  font-weight: $weight;
+}
