@@ -16,15 +16,6 @@ export class BookService extends GenericService<BookModel, BookFilter> {
     const thirdObservable = of('!');
     const fourthObservable = of('RxJS');
 
-    const combinedObservable = firstObservable.pipe(
-      zipWith(
-        secondObservable,
-        thirdObservable,
-        fourthObservable,
-        (firstValue, secondValue, thirdValue, fourthValue) =>
-          `${firstValue} ${secondValue}${thirdValue} with ${fourthValue}`
-      )
-    );
     super(httpClient);
   }
 }
